@@ -17,6 +17,8 @@ const MealItemForm = ({ id, onAddToCart }) => {
       return;
     }
 
+    // 장바구니에 추가할 때, 수량 외에도 item에 관련한 정보들이 필요하기 때문에 함수를 여기서 만들지 않고, item  정보를 가지고 있는 상위 컴포넌트에서 만든 후에 전달하고, 
+    // 수량만을 인자로 받아 함수를 실행!! 시키기!!!
     onAddToCart(enteredItemAmount);
   };
 
@@ -35,6 +37,7 @@ const MealItemForm = ({ id, onAddToCart }) => {
         }}
       />
       <button>+ Add</button>
+      {/* {!formIsValid && <p>수량을 올바르게 입력하세요. (1~5개) </p>} */}
     </form>
   );
 };

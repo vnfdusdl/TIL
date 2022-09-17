@@ -25,6 +25,7 @@ const ColorProvider = ({ children }) => {
 
 // const ColorConsumer = ColorContext.Consumer와 같은 의미
 // ColorContext의 Consumer객체를 비구조화 할당으로 꺼내어 ColorConsumer라는 이름에 담겠다는 의미
+// useContext hook을 사용하면 Consumer를 사용하지 않아도 됨.
 const { Consumer: ColorConsumer } = ColorContext;
 
 // ColorProvider와 ColorConsuner 내보내기

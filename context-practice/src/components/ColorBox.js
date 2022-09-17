@@ -1,29 +1,25 @@
-import React from 'react';
-import { ColorConsumer } from '../contexts/color';
+import React, { useContext } from 'react';
+import ColorContext from '../contexts/color';
 
 const ColorBox = () => {
+  const  colorCtx  = useContext(ColorContext);
   return (
-    // Consumer 를 통해 색상 조회
-    <ColorConsumer>
-      {(value) => (
-        <>
-          <div
-            style={{
-              width: '64px',
-              height: '64px',
-              background: value.state.color,
-            }}
-          />
-          <div
-            style={{
-              width: '32px',
-              height: '32px',
-              background: value.state.subcolor,
-            }}
-          />
-        </>
-      )}
-    </ColorConsumer>
+    <>
+      <div
+        style={{
+          width: '64px',
+          height: '64px',
+          background: colorCtx.state.color,
+        }}
+      />
+      <div
+        style={{
+          width: '32px',
+          height: '32px',
+          background: colorCtx.state.subcolor,
+        }}
+      />
+    </>
   );
 };
 

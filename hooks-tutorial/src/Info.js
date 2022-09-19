@@ -1,33 +1,25 @@
-import { useState, useEffect, useReducer } from 'react';
-
-const reducer = (state, action) => {
-    return {
-        ...state,
-        [action.name] : action.value,
-    }
-}
+import useInputs from './useInputs';
 
 const Info = () => {
-    const [state, dispatch] = useReducer(reducer, {
-        name: '',
-        nickname: '',
-    })
+  const [state, onChange] = useInputs({
+    name: '',
+    nickname: '',
+  });
 
-    const {name, nickname} = state;
-    const onChangeState = e => dispatch(e.target)
+  const { name, nickname } = state;
 
-
-
-    return(<div>
-        <div>
-            <input name='name' value={name} onChange={onChangeState} />
-            <input name='nickname' value={nickname} onChange={onChangeState} />
-        </div>
-        <div>
-            <p>이름 : {name}</p>
-            <p>별명 : {nickname}</p>
-        </div>
-    </div>)
-}
+  return (
+    <div>
+      <div>
+        <input name='name' value={name} onChange={onChange} />
+        <input name='nickname' value={nickname} onChange={onChange} />
+      </div>
+      <div>
+        <p>이름 : {name}</p>
+        <p>별명 : {nickname}</p>
+      </div>
+    </div>
+  );
+};
 
 export default Info;

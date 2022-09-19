@@ -3,7 +3,7 @@ import Input from '../../UI/Input';
 import classes from './MealItemForm.module.css';
 
 const MealItemForm = ({ id, onAddToCart }) => {
-  const [formIsValid, setFormIsValid] = useState(true);
+  const [amountIsValid, setAmountIsValid] = useState(true);
   const amountInputRef = useRef();
 
   const submitHandler = (event) => {
@@ -12,12 +12,16 @@ const MealItemForm = ({ id, onAddToCart }) => {
 
     const enteredItemAmount = parseInt(amountInputRef.current.value);
 
-    if (enteredItemAmount === 0 || enteredItemAmount < 1 || enteredItemAmount > 5) {
-      setFormIsValid(false);
+    if (
+      enteredItemAmount.length === 0 ||
+      enteredItemAmount.length < 1 ||
+      enteredItemAmount.length > 5
+    ) {
+      setAmountIsValid(false);
       return;
     }
 
-    // 장바구니에 추가할 때, 수량 외에도 item에 관련한 정보들이 필요하기 때문에 함수를 여기서 만들지 않고, item  정보를 가지고 있는 상위 컴포넌트에서 만든 후에 전달하고, 
+    // 장바구니에 추가할 때, 수량 외에도 item에 관련한 정보들이 필요하기 때문에 함수를 여기서 만들지 않고, item  정보를 가지고 있는 상위 컴포넌트에서 만든 후에 전달하고,
     // 수량만을 인자로 받아 함수를 실행!! 시키기!!!
     onAddToCart(enteredItemAmount);
   };
@@ -37,7 +41,7 @@ const MealItemForm = ({ id, onAddToCart }) => {
         }}
       />
       <button>+ Add</button>
-      {/* {!formIsValid && <p>수량을 올바르게 입력하세요. (1~5개) </p>} */}
+      {!amountIsValid && <p>please enter a valid amount (1-5)</p>}
     </form>
   );
 };

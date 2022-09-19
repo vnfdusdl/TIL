@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Average from './Average';
 import Counter from './Counter';
 import Info from './Info';
 
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <div className="App">
+      <Average />
       <Counter />
       <button onClick={()=>{setVisible(!visible)}}>
         {visible ? '숨기기' : '보이기'}

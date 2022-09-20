@@ -11,9 +11,13 @@ const Cart = ({ onHideCart }) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
 
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
 
   const cartItems = (
     <ul className={classes['cart-items']}>
@@ -21,7 +25,7 @@ const Cart = ({ onHideCart }) => {
         <CartItem
           key={item.id}
           item={item}
-          // 인수를 넘겨주기 위해서 bind 함수 사용 
+          // 인수를 넘겨주기 위해서 bind 함수 사용
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
         />

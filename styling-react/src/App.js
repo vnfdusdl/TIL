@@ -1,10 +1,10 @@
 import './App.css';
-import SassComponent from './sass/SassComponent';
+import CSSModule from './css-module/CSSModule';
 
 function App() {
   return (
     <div className="App">
-      <SassComponent />
+      <CSSModule />
     </div>
   );
 }

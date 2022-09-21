@@ -1,10 +1,10 @@
 import './App.css';
-import CSSModule from './css-module/CSSModule';
+import StyledComponent from './styled-component/StyledComponenet';
 
 function App() {
   return (
-    <div className="App">
-      <CSSModule />
+    <div className='App'>
+      <StyledComponent />
     </div>
   );
 }

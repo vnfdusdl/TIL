@@ -3,57 +3,44 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import TodoTemplate from './components/TodoTemplate';
 
-function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '리액트 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '컴포넌트 스타일링 해보기',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '일정 관리 앱 만들어 보기',
+const createBulkTodos = () => {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할 일 ${i}`,
       checked: false,
-    },
-  ]);
+    });
+  }
+  return array;
+};
 
-  const nextId = useRef(4);
+function App() {
+  const [todos, setTodos] = useState(createBulkTodos);
 
-  const onInsertNewTodo = useCallback(
-    (text) => {
-      const newTodo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos.concat(newTodo));
-      nextId.current += 1;
-    },
-    [todos],
-  );
+  const nextId = useRef(2501);
 
-  const onRemoveTodo = useCallback(
-    (id) => {
-      const newTodos = todos.filter((todo) => todo.id !== id);
-      setTodos(newTodos);
-    },
-    [todos],
-  );
+  const onInsertNewTodo = useCallback((text) => {
+    const newTodo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    setTodos((todos) => todos.concat(newTodo));
+    nextId.current += 1;
+  }, []);
 
-  const onToggleTodo = useCallback(
-    (id) => {
-      const updatedTodos = todos.map((todo) =>
+  const onRemoveTodo = useCallback((id) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  }, []);
+
+  const onToggleTodo = useCallback((id) => {
+    setTodos((todos) =>
+      todos.map((todo) =>
         todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-      );
-      setTodos(updatedTodos);
-    },
-    [todos],
-  );
+      ),
+    );
+  }, []);
 
   return (
     <TodoTemplate>

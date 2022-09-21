@@ -1,11 +1,8 @@
 import './App.css';
+import TodoTemplate from './components/TodoTemplate';
 
 function App() {
-  return (
-    <div className="App">
-      todo App
-    </div>
-  );
+  return <TodoTemplate>todo App입니둥</TodoTemplate>;
 }
 
 export default App;

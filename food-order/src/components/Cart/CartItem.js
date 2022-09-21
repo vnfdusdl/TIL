@@ -3,6 +3,15 @@ import classes from './CartItem.module.css';
 const CartItem = ({ item, onRemove, onAdd }) => {
   const price = `$${item.price.toFixed(2)}`;
 
+  // props로 받은 함수에 인자를 전달하여 실행하여야 하므로 새로운 함수를 만들어서 onClick 이벤트 핸들러로 달아줌.
+  const onRemoveHandler = () => {
+    onRemove(item.id);
+  };
+
+  const onAddHandler = () => {
+    onAdd(item);
+  };
+
   return (
     <li className={classes['cart-item']}>
       <div>
@@ -13,8 +22,8 @@ const CartItem = ({ item, onRemove, onAdd }) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={onRemove}>−</button>
-        <button onClick={onAdd}>+</button>
+        <button onClick={onRemoveHandler}>−</button>
+        <button onClick={onAddHandler}>+</button>
       </div>
     </li>
   );

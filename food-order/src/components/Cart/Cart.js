@@ -25,9 +25,8 @@ const Cart = ({ onHideCart }) => {
         <CartItem
           key={item.id}
           item={item}
-          // 인수를 넘겨주기 위해서 bind 함수 사용
-          onRemove={cartItemRemoveHandler.bind(null, item.id)}
-          onAdd={cartItemAddHandler.bind(null, item)}
+          onRemove={cartItemRemoveHandler}
+          onAdd={cartItemAddHandler}
         />
       ))}
     </ul>

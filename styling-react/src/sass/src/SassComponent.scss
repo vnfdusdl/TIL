@@ -1,0 +1,27 @@
+@import './styles/util.scss';
+
+.SassComponent {
+  display: flex;
+  .box {
+    // .SassComponent .box 과 같은 의미
+    background-color: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &.red {
+      // red 클래스가 .box 와 함께 사용되었을 때
+      background-color: $red;
+      @include square(1);
+    }
+    &.orange {
+      background-color: $orange;
+      @include square(2);
+    }
+    &.yellow {
+      background-color: $yellow;
+      @include square(3);
+    }
+    &:hover {
+      background-color: black;
+    }
+  }
+}

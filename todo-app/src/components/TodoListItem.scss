@@ -1,10 +1,17 @@
-.TodoListItem {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
+.TodoListItem-virtualized {
+  & + & {
+    border-top: 1px solid #dee2e6;
+  }
   &:nth-child(even) {
     background-color: #f8f9fa;
   }
+}
+
+.TodlListItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
   .checkBox {
     display: flex;
     align-items: center;
@@ -37,8 +44,5 @@
       color: #ff8787;
     }
   }
-// TodoListItem 사이에 테두리 
-  & + & {
-    border-top: 1px solid #dee2e6;
-  }
+  // TodoListItem 사이에 테두리
 }

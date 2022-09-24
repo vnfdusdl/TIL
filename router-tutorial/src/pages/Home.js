@@ -15,6 +15,9 @@ const Home = () => {
         <li>
           <Link to='/profile/gildong'>gildong</Link>
         </li>
+        <li>
+          <Link to='/articles'>게시글목록</Link>
+        </li>
       </ul>
     </div>
   );

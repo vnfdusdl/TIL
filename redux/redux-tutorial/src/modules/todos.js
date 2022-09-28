@@ -1,5 +1,5 @@
 // 액션 타입
-const CHANGE_INPUT = '/todos/CHANGE_INPUT'; //인풋 값을 변경함
+const CHANGE_INPUT = 'todos/CHANGE_INPUT'; //인풋 값을 변경함
 const INSERT = 'todos/INSERT'; //새로운 todo 등록
 const TOGGLE = 'todos/TOGGLE'; // todo를 체크/체크해제
 const REMOVE = 'todos/REMOVE'; // todo를 삭제
@@ -7,7 +7,7 @@ const REMOVE = 'todos/REMOVE'; // todo를 삭제
 // 액션 생성 함수
 export const changeInput = (input) => ({
   type: CHANGE_INPUT,
-  input,
+  input
 });
 
 let id = 3;
@@ -33,8 +33,16 @@ export const remove = (id) => ({
 const initialState = {
   input: '',
   todos: [
-    { id: 1, text: '리덕스 기초 배우기', done: true },
-    { id: 2, text: '리액트와 리덕스 사용하기', done: false },
+    { 
+      id: 1, 
+      text: '리덕스 기초 배우기', 
+      done: true 
+    },
+    { 
+      id: 2,
+      text: '리액트와 리덕스 사용하기', 
+      done: false 
+    },
   ],
 };
 
@@ -48,7 +56,7 @@ const todos = (state = initialState, action) => {
     case INSERT:
       return {
         ...state,
-        todos: state.todo.concat(action.todo),
+        todos: state.todos.concat(action.todo),
       };
     case TOGGLE:
       return {

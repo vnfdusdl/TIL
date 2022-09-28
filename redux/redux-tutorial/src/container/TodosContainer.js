@@ -4,22 +4,39 @@ import Todos from '../components/Todos';
 import { useCallback } from 'react';
 
 const TodosContainer = () => {
-  const input = useSelector((state) => state.todos.input);
-  const todos = useSelector((state) => state.todos.todos);
+  const { input, todos } = useSelector(({ todos }) => ({
+    input: todos.input,
+    todos: todos.todos,
+  }));
+
   const dispatch = useDispatch();
 
-  const onChangeInput = () => {
-    dispatch(changeInput());
-  };
-  const onInsert = () => {
-    dispatch(insert());
-  };
-  const onToggle = () => {
-    dispatch(toggle());
-  };
-  const onRemove = () => {
-    dispatch(remove());
-  };
+  const onChangeInput = useCallback(
+    (input) => {
+      dispatch(changeInput(input));
+    },
+    [dispatch],
+  );
+  const onInsert = useCallback(
+    (text) => {
+      dispatch(insert(text));
+    },
+    [dispatch],
+  );
+
+  const onToggle = useCallback(
+    (id) => {
+      dispatch(toggle(id));
+    },
+    [dispatch],
+  );
+
+  const onRemove = useCallback(
+    (id) => {
+      dispatch(remove(id));
+    },
+    [dispatch],
+  );
 
   return (
     <Todos

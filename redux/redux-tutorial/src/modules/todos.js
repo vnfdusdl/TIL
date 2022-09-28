@@ -68,7 +68,7 @@ const todos = (state = initialState, action) => {
     case REMOVE:
       return {
         ...state,
-        todos: todos.filter((todo) => todo.id !== action.id),
+        todos: state.todos.filter((todo) => todo.id !== action.id),
       };
     default:
       return state;

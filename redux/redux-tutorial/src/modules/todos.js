@@ -62,6 +62,8 @@ const todos = (state = initialState, action) => {
         ...state,
         todos: todos.filter((todo) => todo.id !== action.id),
       };
+    default:
+      return state;
   }
 };
 

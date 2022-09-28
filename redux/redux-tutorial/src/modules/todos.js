@@ -31,7 +31,7 @@ export const remove = (id) => ({
 });
 
 const initialState = {
-  input: '',
+  input: "",
   todos: [
     { 
       id: 1, 

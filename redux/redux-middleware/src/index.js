@@ -4,13 +4,14 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 // import loggerMiddleware from './lib/loggerMiddleware';
+import ReduxThunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
 import rootReducer from './modules';
 
-const logger = createLogger()
-const store = createStore(rootReducer, applyMiddleware(logger));
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(logger, ReduxThunk));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

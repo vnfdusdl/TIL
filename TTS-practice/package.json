@@ -1,0 +1,19 @@
+{
+  "name": "tts-practice",
+  "version": "1.0.0",
+  "description": "tts-practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/speech": "^5.1.0",
+    "@google-cloud/storage": "^6.5.2",
+    "express": "^4.18.2",
+    "node-record-lpcm16": "^1.0.1",
+    "sox": "^0.1.0"
+  }
+}
